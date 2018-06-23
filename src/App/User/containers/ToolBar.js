@@ -1,9 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
-import FontAwesome from '../../components/FontAwesome';
-import Button from '../../components/Button';
-import '../styles/ToolBar.css';
+import FontAwesome from 'App/components/FontAwesome';
+import Button from 'App/components/Button';
+import 'App/styles/ToolBar.css';
 
 
 class ToolBar extends React.Component {

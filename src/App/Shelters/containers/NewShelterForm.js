@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {addNewShelter} from '../../../store/shelters/actions';
-import Form from '../../components/Form';
+import {addNewShelter} from 'store/shelters/actions';
+import Form from 'App/components/Form';
 
 class NewShelterForm extends React.Component {
 

@@ -1,10 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import NewShelterForm from './containers/NewShelterForm';
+import NewShelterForm from 'App/Shelters/containers/NewShelterForm';
 import {Switch, Route, Redirect} from 'react-router-dom';
-import withAuth from '../../hocs/withAuth';
-import ShelterList from './containers/ShelterList';
-import ShelterProfile from './containers/ShelterProfile';
+import withAuth from 'hocs/withAuth';
+import ShelterList from 'App/Shelters/containers/ShelterList';
+import ShelterProfile from 'App/Shelters/containers/ShelterProfile';
 
 class User extends React.Component {
   render(){

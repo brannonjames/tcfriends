@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import Auth from '../App/User/containers/Auth';
+import Auth from 'App/User/containers/Auth';
 
 export default function withAuth(Component){
   class Authenticate extends React.Component {

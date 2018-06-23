@@ -1,9 +1,9 @@
 import React from 'react';
-import Auth from './containers/Auth';
-import UserProfile from './containers/UserProfile';
+import Auth from 'App/User/containers/Auth';
+import UserProfile from 'App/User/containers/UserProfile';
 import {connect} from 'react-redux';
 import {Switch, Route, Redirect} from 'react-router-dom';
-import withAuth from '../../hocs/withAuth';
+import withAuth from 'hocs/withAuth';
 
 class User extends React.Component {
   render(){

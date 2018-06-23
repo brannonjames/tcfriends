@@ -1,8 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {getFriends, heartFriend} from '../../../store/friends/actions';
-import FeedItem from '../components/FeedItem';
-import Loader from '../../components/Loader';
+import {getFriends, heartFriend} from 'store/friends/actions';
+import FeedItem from 'App/components/FeedItem';
+import Loader from 'App/components/Loader';
 
 
 class HomePage extends React.Component {

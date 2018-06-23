@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import FeedItem from '../../Home/components/FeedItem';
-import {getShelters} from '../../../store/shelters/actions';
+import FeedItem from 'App/components/FeedItem';
+import {getShelters} from 'store/shelters/actions';
 
 class ShelterList extends React.Component {
   componentDidMount(){

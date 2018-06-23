@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/FontAwesome.css';
+import 'App/styles/FontAwesome.css';
 
 const FontAwesome = ({icon, size, color}) => {
 

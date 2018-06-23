@@ -1,10 +1,10 @@
 import React from 'react';
-import {getFriend} from '../../../store/friends/actions';
+import {getFriend} from 'store/friends/actions';
 import {connect} from 'react-redux';
-import Profile from '../../components/Profile';
-import MediaDisplay from '../../components/MediaDisplay';
-import Loader from '../../components/Loader';
-import FeedItem from '../../Home/components/FeedItem';
+import Profile from 'App/components/Profile';
+import MediaDisplay from 'App/components/MediaDisplay';
+import Loader from 'App/components/Loader';
+import FeedItem from 'App/components/FeedItem';
 
 class FriendProfile extends React.Component {
 

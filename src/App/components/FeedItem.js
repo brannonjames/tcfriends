@@ -1,8 +1,8 @@
 import React from 'react';
-import MediaDisplay from '../../components/MediaDisplay';
-import UpButton from '../../components/UpButton';
+import MediaDisplay from 'App/components/MediaDisplay';
+import UpButton from 'App/components/UpButton';
 import {withRouter} from 'react-router-dom';
-import '../styles/FeedItem.css'
+import 'App/styles/FeedItem.css'
 
 class FeedItem extends React.Component {
 

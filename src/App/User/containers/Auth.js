@@ -1,8 +1,8 @@
 import React from 'react';
-import {addError} from '../../../store/errors/actions';
-import {authUser} from '../../../store/auth/actions';
+import {addError} from 'store/errors/actions';
+import {authUser} from 'store/auth/actions';
 import {connect} from 'react-redux';
-import Form from '../../components/Form';
+import Form from 'App/components/Form';
 
 class Auth extends React.Component {
 

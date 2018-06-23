@@ -1,6 +1,6 @@
 import React from 'react';
-import FontAwesome from './FontAwesome';
-import '../styles/UpButton.css';
+import FontAwesome from 'App/components/FontAwesome';
+import 'App/styles/UpButton.css';
 
 
 

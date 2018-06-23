@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/DisplayPhoto.css';
+import 'App/styles/DisplayPhoto.css';
 
 const Greeting = ({name}) => {
   return (

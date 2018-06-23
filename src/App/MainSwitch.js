@@ -1,14 +1,13 @@
 import React from 'react';
 import {Switch, Route} from 'react-router-dom';
-import Home from './Home';
-import User from './User';
-import Shelters from './Shelters';
-import Friends from './Friends';
+import User from 'App/User';
+import Shelters from 'App/Shelters';
+import Friends from 'App/Friends';
 
 const MainSwitch = props => (
   <main>
     <Switch>
-      <Route exact path="/" component={Home} />
+      <Route exact path="/" component={Friends} />
       <Route path="/user" component={User} />
       <Route path="/shelters" component={Shelters} />
       <Route path="/friends" component={Friends} />

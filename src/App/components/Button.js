@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/Button.css';
+import 'App/styles/Button.css';
 
 const Button = ({type, handleClick, label, children, buttonStyle, size, color}) => {
   let btnColor = {backgroundColor: color};
