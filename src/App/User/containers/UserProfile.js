@@ -6,7 +6,7 @@ import {withRouter} from 'react-router-dom';
 import Profile from 'App/components/Profile';
 import DisplayPhoto from 'App/components/DisplayPhoto';
 import Greeting from 'App/components/Greeting';
-import ToolBar from 'App/components/ToolBar';
+import ToolBar from 'App/User/containers/ToolBar';
 
 class UserProfile extends React.Component {
 
