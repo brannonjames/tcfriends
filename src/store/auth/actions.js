@@ -1,6 +1,6 @@
-import {SET_CURRENT_USER} from '../actionTypes';
-import {apiCall, setTokenHeader} from '../../services/api';
-import {addError} from '../errors/actions';
+import {SET_CURRENT_USER} from 'store/actionTypes';
+import {apiCall, setTokenHeader} from 'services/api';
+import {addError} from 'store/errors/actions';
 import jwtDecode from 'jwt-decode';
 
 export function setCurrentUser(user){

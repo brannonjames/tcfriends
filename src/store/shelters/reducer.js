@@ -1,4 +1,4 @@
-import {ADD_SHELTERS, SET_CURRENT_SHELTER} from '../actionTypes';
+import {ADD_SHELTERS, SET_CURRENT_SHELTER} from 'store/actionTypes';
 
 function shelters(state={all: [], currentShelter: {}}, action){
   switch(action.type){

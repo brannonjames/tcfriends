@@ -1,4 +1,4 @@
-import {SET_CURRENT_USER, UPDATE_CURRENT_USER} from '../actionTypes';
+import {SET_CURRENT_USER, UPDATE_CURRENT_USER} from 'store/actionTypes';
 
 let initialState = {
   isAuthenticated: false

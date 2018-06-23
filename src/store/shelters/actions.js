@@ -1,7 +1,7 @@
-import {apiCall} from '../../services/api';
-import {refreshCurrentUser} from '../auth/actions';
-import {ADD_SHELTERS, SET_CURRENT_SHELTER} from '../actionTypes';
-import {addError} from '../errors/actions'
+import {apiCall} from 'services/api';
+import {refreshCurrentUser} from 'store/auth/actions';
+import {ADD_SHELTERS, SET_CURRENT_SHELTER} from 'store/actionTypes';
+import {addError} from 'store/errors/actions'
 
 
 function addShelters(shelters){

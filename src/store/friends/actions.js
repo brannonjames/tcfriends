@@ -1,6 +1,6 @@
-import {apiCall} from '../../services/api';
-import {addError} from '../errors/actions';
-import {ADD_FRIENDS, REFRESH_FRIEND, SET_CURRENT_FRIEND} from '../actionTypes';
+import {apiCall} from 'services/api';
+import {addError} from 'store/errors/actions';
+import {ADD_FRIENDS, REFRESH_FRIEND, SET_CURRENT_FRIEND} from 'store/actionTypes';
 
 
 function addFriends(friends){

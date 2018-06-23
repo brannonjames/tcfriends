@@ -1,4 +1,4 @@
-import {ADD_ERROR, REMOVE_ERROR} from '../actionTypes';
+import {ADD_ERROR, REMOVE_ERROR} from 'store/actionTypes';
 
 export function addError(error){
   return {

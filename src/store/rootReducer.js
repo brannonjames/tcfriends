@@ -1,8 +1,8 @@
 import {combineReducers} from 'redux';
-import currentUser from './auth/reducer';
-import errors from './errors/reducer';
-import friends from './friends/reducer';
-import shelters from './shelters/reducer';
+import currentUser from 'store/auth/reducer';
+import errors from 'store/errors/reducer';
+import friends from 'store/friends/reducer';
+import shelters from 'store/shelters/reducer';
 
 
 export default combineReducers({

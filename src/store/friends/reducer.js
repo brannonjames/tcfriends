@@ -1,4 +1,4 @@
-import {ADD_FRIENDS, REFRESH_FRIEND, SET_CURRENT_FRIEND} from '../actionTypes';
+import {ADD_FRIENDS, REFRESH_FRIEND, SET_CURRENT_FRIEND} from 'store/actionTypes';
 
 function friends(state={all: [], currentFriend: {}}, action){
   switch(action.type){
