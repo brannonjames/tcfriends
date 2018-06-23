@@ -1,5 +1,4 @@
 import React from 'react';
-import {connect} from 'react-redux';
 
 class NavBar extends React.Component {
   render(){
@@ -11,4 +10,4 @@ class NavBar extends React.Component {
   }
 }
 
-export default connect()(NavBar);
+export default NavBar;

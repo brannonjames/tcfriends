@@ -22,4 +22,4 @@ class Header extends React.Component {
   }
 }
 
-export default withRouter(connect()(Header));
+export default withRouter(Header);
