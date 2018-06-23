@@ -1,0 +1,21 @@
+.Slideshow {
+  position: relative;
+}
+
+.slideshow-nav {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+}
+
+.slideshow-nav > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.slideshow-nav i {
+  opacity: 0.4;
+}

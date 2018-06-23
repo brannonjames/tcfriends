@@ -1,0 +1,9 @@
+footer {
+  text-align: center;
+}
+
+footer p {
+  font-size: .8em;
+  color: grey;
+  font-style: italic;
+}

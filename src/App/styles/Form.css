@@ -1,0 +1,22 @@
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 80%;
+  flex-grow: 1;
+}
+
+div.form-inputs {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  border: 2px solid black;
+  padding: 20px;
+  overflow: auto;
+  margin: 8px 0;
+}
+
+div.form-inputs input {
+  height: 42px;
+  margin: 2vh 0;
+}

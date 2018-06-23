@@ -1,0 +1,9 @@
+.FeedItem {
+  display: flex;
+  flex-direction: column;
+
+  background-color: #D5DFF2;
+  margin: 2vh 0;
+  overflow: hidden;
+  padding: 4px 0;
+}

@@ -1,0 +1,14 @@
+header {
+  display: flex;
+  background-color: #002633;
+  height: 54px;
+  margin: 0;
+  align-items: center;
+  justify-content: space-around;
+}
+
+header h2 {
+  color: white;
+  margin: 0;
+  font-family: 'Bitter', sans-serif;
+}
