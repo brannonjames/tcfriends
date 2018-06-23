@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/Profile.css';
+import 'App/styles/Profile.css';
 
 const Profile = ({children}) => (
   <div className="Profile">

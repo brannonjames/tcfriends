@@ -1,12 +1,12 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {logoutUser} from '../../../store/auth/actions';
-import Button from '../../components/Button';
+import {logoutUser} from 'store/auth/actions';
+import Button from 'App/components/Button';
 import {withRouter} from 'react-router-dom';
-import Profile from '../../components/Profile';
-import DisplayPhoto from '../components/DisplayPhoto';
-import Greeting from '../components/Greeting';
-import ToolBar from '../components/ToolBar';
+import Profile from 'App/components/Profile';
+import DisplayPhoto from 'App/components/DisplayPhoto';
+import Greeting from 'App/components/Greeting';
+import ToolBar from 'App/components/ToolBar';
 
 class UserProfile extends React.Component {
 

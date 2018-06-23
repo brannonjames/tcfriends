@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/Error.css';
+import 'App/styles/Error.css';
 
 const Error = ({error}) => (
   <div className="Error">

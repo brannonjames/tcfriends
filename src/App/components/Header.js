@@ -1,8 +1,7 @@
 import React from 'react';
-import {connect} from 'react-redux';
 import {withRouter, NavLink} from 'react-router-dom';
-import '../styles/Header.css';
-import FontAwesome from '../components/FontAwesome';
+import 'App/styles/Header.css';
+import FontAwesome from 'App/components/FontAwesome';
 
 class Header extends React.Component {
   render(){

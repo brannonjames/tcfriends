@@ -1,7 +1,7 @@
 import React from 'react';
-import Button from './Button';
-import TextInput from './TextInput';
-import '../styles/Form.css';
+import Button from 'App/components/Button';
+import TextInput from 'App/components/TextInput';
+import 'App/styles/Form.css';
 
 class Form extends React.Component {
 

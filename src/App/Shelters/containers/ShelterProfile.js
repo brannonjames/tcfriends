@@ -1,8 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {getShelter} from '../../../store/shelters/actions';
-import Loader from '../../components/Loader';
-import Profile from '../../components/Profile';
+import {getShelter} from 'store/shelters/actions';
+import Loader from 'App/components/Loader';
+import Profile from 'App/components/Profile';
 
 class ShelterProfile extends React.Component {
   componentDidMount(){

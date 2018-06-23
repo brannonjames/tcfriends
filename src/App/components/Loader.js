@@ -1,6 +1,6 @@
 import React from 'react';
-import FontAwesome from './FontAwesome';
-import '../styles/Loader.css';
+import FontAwesome from 'App/components/FontAwesome';
+import 'App/styles/Loader.css';
 
 const Loader = () => {
   return (

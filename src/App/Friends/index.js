@@ -1,8 +1,8 @@
 import React from 'react';
-import NewFriendForm from './containers/NewFriendForm';
-import FriendProfile from './containers/FriendProfile';
+import NewFriendForm from 'App/Friends/containers/NewFriendForm';
+import FriendProfile from 'App/Friends/containers/FriendProfile';
 import {Switch, Route, Redirect} from 'react-router-dom';
-import withAuth from '../../hocs/withAuth';
+import withAuth from 'hocs/withAuth';
 
 class Shelters extends React.Component {
   render(){

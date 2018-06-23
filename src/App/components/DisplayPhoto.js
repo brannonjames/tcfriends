@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import '../styles/DisplayPhoto.css';
+import 'App/styles/DisplayPhoto.css';
 
 const DisplayPhoto = ({image, round, alt}) => {
   let imgClass = classNames({

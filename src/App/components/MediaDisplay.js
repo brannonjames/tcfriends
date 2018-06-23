@@ -1,7 +1,7 @@
 import React from 'react';
-import FontAwesome from './FontAwesome';
-import '../styles/MediaDisplay.css';
-import '../styles/Slideshow.css';
+import FontAwesome from 'App/components/FontAwesome';
+import 'App/styles/MediaDisplay.css';
+import 'App/styles/Slideshow.css';
 
 
 class Slideshow extends React.Component {
