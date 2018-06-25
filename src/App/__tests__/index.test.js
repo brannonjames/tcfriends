@@ -2,22 +2,29 @@ import React from 'react';
 import {shallow, render, mount} from 'enzyme';
 import App from 'App';
 import Root from 'Root';
+import moxios from 'moxios';
 // import Header from 'App/containers/Header';
 
 let wrapped;
 beforeEach(() => {
+  moxios.install();
+  moxios.stubRequest('/api/friends', {});
   wrapped = mount(
     <Root>
       <App />
     </Root>
   )
+});
+
+afterEach(() =>{
+  moxios.uninstall();
+  wrapped.unmount();
 })
 
-console.log(wrapped);
 
 it('renders a header', () => {
-  // expect(wrapped.find('<Header />').length).toEqual(1);
-  console.log('header');
+  console.log(wrapped);
+  expect(wrapped.find('header').length).toEqual(1);
 });
 
 
