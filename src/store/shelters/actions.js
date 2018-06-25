@@ -22,7 +22,7 @@ function setCurrentShelter(shelter){
 export function addNewShelter(userId, shelter){
   return dispatch => {
     return new Promise((resolve, reject) => {
-      return apiCall('post', `/api/shelters/${userId}`, null, shelter)
+      return apiCall('post', `/api/shelters/`, null, shelter)
       .then(shelter => {
         dispatch(refreshCurrentUser(userId));
         resolve(shelter);
