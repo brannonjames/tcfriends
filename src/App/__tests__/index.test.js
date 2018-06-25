@@ -1,11 +1,23 @@
 import React from 'react';
-import {shallow, render} from 'enzyme';
-import App from './index';
-import Header from './containers/Header';
+import {shallow, render, mount} from 'enzyme';
+import App from 'App';
+import Root from 'Root';
+// import Header from 'App/containers/Header';
 
-console.log(App);
+let wrapped;
+beforeEach(() => {
+  wrapped = mount(
+    <Root>
+      <App />
+    </Root>
+  )
+})
+
+console.log(wrapped);
 
 it('renders a header', () => {
-  const wrapper = shallow(<App.WrappedComponent />);
-  expect(wrapper.find(Header).length).toEqual(1);
+  // expect(wrapped.find('<Header />').length).toEqual(1);
+  console.log('header');
 });
+
+
