@@ -15,6 +15,47 @@ class NewFriendForm extends React.Component {
     })
   }
 
+  species = [
+    {
+      name: 'dog',
+      label: 'Dog'
+    },
+    {
+      name: 'cat',
+      label: 'Cat'
+    }
+  ]
+
+  genders = [
+    {
+      name: 'male',
+      label: 'Male'
+    },
+    {
+      name: 'female',
+      label: 'Female'
+    },
+    {
+      name: 'unknown',
+      label: 'Unknown'
+    }
+  ]
+
+  ages = [
+    {
+      name: 'young',
+      label: 'Young'
+    },
+    {
+      name: 'adult',
+      label: 'Adult'
+    },
+    {
+      name: 'senior',
+      label: 'Senior'
+    }
+  ]
+
   render(){
     return (
       <Form
@@ -23,19 +64,26 @@ class NewFriendForm extends React.Component {
       >
         <Input 
           name='name'
-          label="Name"
+          label='Name'
         />
-        <Input 
+        <Input
+          options={this.species} 
           name='species'
-          label="Species"
+          label='Species'
         />
         <Input 
+          options={this.ages}
           name='age'
-          label="Age"
+          label='Age'
+        />
+        <Input
+          options={this.genders} 
+          name='gender'
+          label='Gender'
         />
         <Input 
           name='photo'
-          label="Image URL"
+          label='Image URL'
         />
       </Form>
     )

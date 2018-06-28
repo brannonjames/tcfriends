@@ -27,8 +27,9 @@ class Input extends React.Component {
     const { options } = this.props;
     return (
       <select {...this.renderProps()}>
+        <option disabled defaultValue value="">{this.props.label}</option>
         {options.map(o => (
-          <option>{o}</option>
+          <option key={o.name} name={o.name}>{o.label}</option>
         ))}
       </select>
     ) 
@@ -45,12 +46,12 @@ class Input extends React.Component {
   }
 
   render(){
-    const { textarea, select } = this.props;
+    const { textarea, options } = this.props;
     return (
       <div className="Input">
         { textarea ? 
           this.renderInput() :
-          select ?
+          options ?
           this.renderSelect() :
           this.renderInput()
         }
