@@ -3,21 +3,37 @@ import {addError} from 'store/errors/actions';
 import {authUser} from 'store/auth/actions';
 import {connect} from 'react-redux';
 import Form from 'App/components/Form';
+import Input from 'App/components/Input';
 
 class Auth extends React.Component {
 
-  inputs = [
-    {name: 'email', label: 'Email'},
-    {name: 'password', label: 'Password', type: 'password'}
+  loginInputs = [
   ]
 
   signupInputs = [
-    {name: 'first', label: 'First Name'},
-    {name: 'last', label: 'Last Name'},
-    {name: 'displayPhoto', label: 'Display Photo URL'},
-    ...this.inputs,
-    {name: 'confirmPass', label: 'Confirm Password', type: 'password'}
+
   ]
+
+  renderLoginInputs = () => {
+    return (
+      [
+        <Input name="email" label="Email" key="name" />,
+        <Input name="password" label="Password" key="password" />
+      ]
+    )
+  }
+
+  renderSignupInputs = () => {
+    return (
+      [
+        <Input name="first" label="First Name" key="first" />,
+        <Input name="last" label="Last Name" key="last" />,
+        <Input name="displayPhoto" label="Display Photo URL" key="image" />,
+        ...this.renderLoginInputs(),
+        <Input name="confirmPass" label="Confirm Password" type="password" key="confirm" />
+      ]  
+    )
+  }
 
   handleAuth = userData => {
 
@@ -36,13 +52,25 @@ class Auth extends React.Component {
 
   render(){
     let {login, signup} = this.props;
-    return (
-      <Form
-        inputs={signup ? this.signupInputs : this.inputs}
+    if(signup){
+      return (
+        <Form
         handleSubmit={this.handleAuth}
-        btnLabel={login ? "Login" : "Sign Up!"}
-      />
-    )
+        btnLabel={"Sign Up!"}
+      >
+        {this.renderSignupInputs()}
+      </Form>
+      )
+    } else {
+      return (
+        <Form
+        handleSubmit={this.handleAuth}
+        btnLabel={"Login"}
+      >
+        {this.renderLoginInputs()}
+      </Form>
+      )
+    }
   }
 }
 

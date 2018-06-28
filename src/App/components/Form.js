@@ -1,18 +1,18 @@
-import React from 'react';
+import React, { Component, cloneElement, Children } from 'react';
 import Button from 'App/components/Button';
 import Input from 'App/components/Input';
 import 'App/styles/Form.css';
 
-class Form extends React.Component {
+class Form extends Component {
 
   componentWillMount(){
-    let state = this.props.inputs.reduce((acc, input) => {
-      acc[input.name] = input.type === 'number' ? 0 : ""
-      return acc;
-    }, {})
+    const { children } = this.props;
+    let state = {};
+    Children.forEach(children, child => {
+      state[child.props.name] = "";
+    });
     this.setState(state);
   }
-
 
   handleChange = e => {
     this.setState({
@@ -20,18 +20,16 @@ class Form extends React.Component {
     })
   }
 
-  returnInputs = inputs => (
-    inputs.map(input => (
-      <Input
-        key={input.name}
-        name={input.name}
-        label={input.label}
-        value={this.state[input.name]}
-        type={input.type || 'text'}
-        handleChange={this.handleChange}
-      />
-    ))
-  );
+  renderInputs = () => {
+    let { children } = this.props;
+    return Children.map(children, child => {
+      return cloneElement(child, {
+        ...child.props,
+        value: this.state[child.props.name],
+        handleChange: this.handleChange
+      });
+    });
+  }
 
 
   render(){
@@ -42,7 +40,7 @@ class Form extends React.Component {
         handleSubmit(this.state)
       }}>
         <div className="form-inputs">
-          {this.returnInputs(inputs)}
+          {this.renderInputs()}
         </div>
         <Button label={btnLabel} type='submit' />
       </form>

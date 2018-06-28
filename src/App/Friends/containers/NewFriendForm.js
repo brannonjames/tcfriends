@@ -1,16 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {addNewFriend, getFriends} from 'store/friends/actions';
+import Input from 'App/components/Input';
 import Form from 'App/components/Form';
 
 class NewFriendForm extends React.Component {
-
-  inputs = [
-    {name: 'name', label: 'Name'},
-    {name: 'species', label: 'Species'},
-    {name: 'age', label: 'Age', type: 'number'},
-    {name: 'photo', label: 'Image URL'}
-  ]
 
   handleNewFriend = friend => {
     let {usersShelterId, addNewFriend, getFriends, history} = this.props;
@@ -24,10 +18,26 @@ class NewFriendForm extends React.Component {
   render(){
     return (
       <Form
-        inputs={this.inputs}
         handleSubmit={this.handleNewFriend}
         btnLabel="Add Friend"
-      />
+      >
+        <Input 
+          name='name'
+          label="Name"
+        />
+        <Input 
+          name='species'
+          label="Species"
+        />
+        <Input 
+          name='age'
+          label="Age"
+        />
+        <Input 
+          name='photo'
+          label="Image URL"
+        />
+      </Form>
     )
   }
 
