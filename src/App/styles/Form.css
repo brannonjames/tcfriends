@@ -15,3 +15,7 @@ div.form-inputs {
   overflow: auto;
   margin: 8px 0;
 }
+
+form > button {
+  margin: 20px;
+}
