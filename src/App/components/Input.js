@@ -50,7 +50,7 @@ class Input extends React.Component {
     return (
       <div className="Input">
         { textarea ? 
-          this.renderInput() :
+          this.renderTextArea() :
           options ?
           this.renderSelect() :
           this.renderInput()

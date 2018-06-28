@@ -85,6 +85,11 @@ class NewFriendForm extends React.Component {
           name='photo'
           label='Image URL'
         />
+        <Input 
+          textarea
+          name="description"
+          label="All about your friend"
+        />
       </Form>
     )
   }
