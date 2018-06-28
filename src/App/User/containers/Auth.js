@@ -18,7 +18,7 @@ class Auth extends React.Component {
     return (
       [
         <Input name="email" label="Email" key="name" />,
-        <Input name="password" label="Password" key="password" />
+        <Input name="password" label="Password" key="password" type="password" />
       ]
     )
   }
@@ -30,7 +30,7 @@ class Auth extends React.Component {
         <Input name="last" label="Last Name" key="last" />,
         <Input name="displayPhoto" label="Display Photo URL" key="image" />,
         ...this.renderLoginInputs(),
-        <Input name="confirmPass" label="Confirm Password" type="password" key="confirm" />
+        <Input name="confirmPass" label="Confirm Password" type="password" key="confirm" type="password" />
       ]  
     )
   }
