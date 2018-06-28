@@ -1,0 +1,9 @@
+.Input {
+  position: relative;
+}
+
+.Input input,
+.Input textarea,
+.Input select {
+  width: 100%;
+}

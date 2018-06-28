@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from 'App/components/Button';
-import TextInput from 'App/components/TextInput';
+import Input from 'App/components/Input';
 import 'App/styles/Form.css';
 
 class Form extends React.Component {
@@ -22,7 +22,7 @@ class Form extends React.Component {
 
   returnInputs = inputs => (
     inputs.map(input => (
-      <TextInput
+      <Input
         key={input.name}
         name={input.name}
         label={input.label}
