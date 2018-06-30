@@ -2,19 +2,17 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {addNewShelter} from 'store/shelters/actions';
 import Form from 'App/components/Form';
+import Input from 'App/components/Input';
 
 class NewShelterForm extends React.Component {
 
-
-  inputs = [
-    {name: 'name', label: 'Shelter Name'},
-    {name: 'city', label: 'City'},
-    {name: 'email', label: 'Email'}
-  ]
-
   handleNewShelter = (data) => {
+
     let {addNewShelter, history, currentUserId} = this.props;
-    addNewShelter(currentUserId, data)
+    addNewShelter(currentUserId, {
+      name: data.name,
+      contact: {...data}
+    })
     .then(history.push('/user'));
   }
 
@@ -26,7 +24,28 @@ class NewShelterForm extends React.Component {
         inputs={this.inputs}
         handleSubmit={this.handleNewShelter}
         btnLabel="Add Shelter"
-      />
+      >
+        <Input 
+          name="name" 
+          label="Shelter Name"
+        />        
+        <Input 
+          name="email" 
+          label="Email"
+        />
+        <Input 
+          name="address1" 
+          label="Address Line 1"
+        />
+        <Input 
+          name="address2" 
+          label="Address Line 2"
+        />
+        <Input 
+          name="zip" 
+          label="Zip Code"
+        />
+      </Form>
     )
   }
 
