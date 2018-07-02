@@ -2,6 +2,7 @@ import React from 'react';
 import {getFriend} from 'store/friends/actions';
 import {connect} from 'react-redux';
 import Profile from 'App/components/Profile';
+import ProfileInfo from 'App/components/ProfileInfo';
 import MediaDisplay from 'App/components/MediaDisplay';
 import Loader from 'App/components/Loader';
 import FeedItem from 'App/components/FeedItem';
@@ -15,7 +16,7 @@ class FriendProfile extends React.Component {
 
   render(){
     let {pageReady, friend} = this.props;
-    let {name, species, media, description, shelter} = friend;
+    let {name, species, media, description, shelter, age, gender} = friend;
     if(!pageReady){
       return <Loader />
     }
@@ -24,8 +25,13 @@ class FriendProfile extends React.Component {
         <MediaDisplay 
           media={media.photos} 
         />
-        <h3>{`This is ${name} the ${species}.`}</h3>
-        <p>{description}</p>
+        <ProfileInfo 
+          friend
+          title={`${name} the ${species}`}
+          age={age}
+          gender={gender}
+          description={description}
+        />
         <FeedItem 
           type='shelters'
           name={shelter.name} 
