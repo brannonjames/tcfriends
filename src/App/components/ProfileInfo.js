@@ -13,10 +13,12 @@ export default class ProfileInfo extends React.Component {
   }
 
   renderShelterInfo = () => {
-    const {email, address1, address2, city, state, zip} = this.props.shelter.contact;
+    const {email, address1, address2, city, state, zip} = this.props.contact;
+    const {subheader} = style;
+    console.log(this.props);
     return (
       <address>
-        <h2>{email}</h2>
+        <h2 style={subheader}>{email}</h2>
         <ul>
           <li>{address1}</li>
           <li>{address2}</li>

@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {getShelter} from 'store/shelters/actions';
 import Loader from 'App/components/Loader';
 import Profile from 'App/components/Profile';
+import ProfileInfo from 'App/components/ProfileInfo';
 
 class ShelterProfile extends React.Component {
   componentDidMount(){
@@ -25,15 +26,11 @@ class ShelterProfile extends React.Component {
 
     return (
       <Profile>
-        <h1>{shelter.name}</h1>
-        <ul>
-          <li>{email}</li>
-          <li>{address1}</li>
-          <li>{address2}</li>
-          <li>{city}</li>
-          <li>{state}</li>
-          <li>{zip}</li>
-        </ul>
+        <ProfileInfo 
+          shelter
+          title={shelter.name}
+          contact={shelter.contact}
+        />
       </Profile>
     )
   }
