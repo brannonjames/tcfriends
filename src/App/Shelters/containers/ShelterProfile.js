@@ -9,12 +9,31 @@ class ShelterProfile extends React.Component {
     this.props.getShelter(this.props.match.params.shelter_id);
   }
   render(){
-    if(!this.props.pageReady){
+    const { pageReady, shelter } = this.props;
+    if(!pageReady){
       return <Loader />
     }
+
+    const {
+      email,
+      address1,
+      address2,
+      city,
+      state,
+      zip
+    } = shelter.contact;
+
     return (
       <Profile>
-        <h1>{this.props.shelter.name}</h1>
+        <h1>{shelter.name}</h1>
+        <ul>
+          <li>{email}</li>
+          <li>{address1}</li>
+          <li>{address2}</li>
+          <li>{city}</li>
+          <li>{state}</li>
+          <li>{zip}</li>
+        </ul>
       </Profile>
     )
   }
