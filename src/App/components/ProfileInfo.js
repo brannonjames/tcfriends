@@ -3,10 +3,11 @@ import React from 'react';
 export default class ProfileInfo extends React.Component {
   renderFriendInfo = () => {
     const {age, gender} = this.props;
+    const {subheader} = style;
     return (
-      <div style={style.subheading}>
-        <h2>{age}</h2>
-        <h2>{gender}</h2>
+      <div>
+        <h2 style={subheader}>{age}</h2>
+        <h2 style={subheader}>{gender}</h2>
       </div>
     )
   }
@@ -33,8 +34,8 @@ export default class ProfileInfo extends React.Component {
     return (
       <div style={style.ProfileInfo}>
         <h1 style={style.title}>{title}</h1>
-        { friend && this.renderFriendInfo}
-        { shelter && this.renderShelterInfo}
+        { friend && this.renderFriendInfo()}
+        { shelter && this.renderShelterInfo()}
         <p>{description}</p>
       </div>
     )
@@ -48,7 +49,7 @@ const style = {
   title: {
     margin: '12px 0'
   },
-  subheading: {
+  subheader: {
     fontSize: "1em"
   }
 }
