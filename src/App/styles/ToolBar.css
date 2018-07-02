@@ -1,10 +1,10 @@
 div.ToolBar {
   width: 80%;
+  margin: 4vh 0;
 }
 
  .toolbar-content {
   display: flex;
-  align-items: flex-end;
   justify-content: space-around;
 }
 
