@@ -13,13 +13,13 @@ class FeedItem extends React.Component {
   }  
 
   render(){
-    let {name, media, ups, handleUp, type} = this.props;
+    let {name, media, ups, handleUp, type, small} = this.props;
     return (
-      <div onClick={this.handleClick} className="FeedItem">
+      <div onClick={this.handleClick} className="FeedItem" style={small && styles.small}>
         { media && 
           <MediaDisplay media={media} />
         }
-        <div className="item-info"> 
+        <div className="item-info" style={small && styles.smallText}> 
           <h2>{name}</h2>
           { type === 'friends' &&
             <UpButton
@@ -33,6 +33,16 @@ class FeedItem extends React.Component {
         </div>
       </div>    
     )
+  }
+}
+
+const styles = {
+  small: {
+    width: '45%',
+    margin: '8px'
+  },
+  smallText: {
+    textAlign: 'center'
   }
 }
 
