@@ -1,6 +1,8 @@
 import React from 'react';
 import FeedItem from './FeedItem';
 import Loader from './Loader';
+import MediaDisplay from './MediaDisplay';
+import FeedItemInfo from './ListItemInfo';
 import '../styles/ProfileList.css';
 
 class ProfileList extends React.Component {
@@ -13,9 +15,15 @@ class ProfileList extends React.Component {
         type={'friends'}
         key={li._id}
         id={li._id}
-        media={li.media.photos[0]}
-        name={li.name}
-      />
+        
+      >
+        <FeedItemInfo>
+          <p>{li.name}</p>
+        </FeedItemInfo>
+        <MediaDisplay 
+          media={li.media.photos[0]}
+        />
+      </FeedItem>
     ))
   }
 
