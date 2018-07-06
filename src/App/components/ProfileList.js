@@ -10,6 +10,7 @@ class ProfileList extends React.Component {
     return items.map(li => (
       <FeedItem 
         small
+        type={'friends'}
         key={li._id}
         id={li._id}
         media={li.media.photos[0]}

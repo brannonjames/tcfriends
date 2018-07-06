@@ -3,6 +3,9 @@ import {connect} from 'react-redux';
 import {getFriends, heartFriend} from 'store/friends/actions';
 import FeedItem from 'App/components/FeedItem';
 import Loader from 'App/components/Loader';
+import MediaDisplay from 'App/components/MediaDisplay';
+import UpButton from 'App/components/UpButton';
+import ListItemInfo from 'App/components/ListItemInfo';
 
 
 class HomePage extends React.Component {
@@ -19,29 +22,36 @@ class HomePage extends React.Component {
     }
   }
 
-  render(){
-    if(!this.props.pageReady){
-      return <Loader />
-    }
-    let friends = this.props.friends.all.map(friend => {
+  renderListItems(){
+    return this.props.friends.all.map(friend => {
       let {name, media, _id, ups} = friend;
       return (
         <FeedItem
           type='friends'
           key={_id}
-          name={name}
-          media={media.photos[0] ? media.photos[0] : null}
           id={_id}
-          ups={ups}
-          handleUp={this.handleHeart.bind(this, _id)}
-        />
+        >
+          <MediaDisplay media={media.photos[0] ? media.photos[0] : null} />
+          <ListItemInfo>
+            <h2>{name}</h2>
+            <UpButton
+              ups={ups}
+              handleClick={this.handleHeart.bind(this, _id)}
+            />
+          </ListItemInfo>
+        </FeedItem>
       )
     })
+  }
 
+  render(){
+    if(!this.props.pageReady){
+      return <Loader />
+    }
 
     return (
       <ul>
-        {friends}
+        { this.renderListItems() }
       </ul>
     )
   }

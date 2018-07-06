@@ -17,7 +17,7 @@ class ToolBar extends React.Component {
   }
 
   render(){
-    let {shelter} = this.props;
+    let {shelter, history} = this.props;
     return (
       <div className="ToolBar">
         { !shelter &&
@@ -54,7 +54,7 @@ class ToolBar extends React.Component {
              <div className="toolbar-button">
                <Button
                  buttonStyle='circle-lg'
-                 handleClick={() => {}}
+                 handleClick={() => {history.push(`/shelters/${shelter._id}`)}}
                 >
                   <FontAwesome
                     icon='home'
