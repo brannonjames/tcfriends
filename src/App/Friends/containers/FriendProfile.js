@@ -1,6 +1,7 @@
 import React from 'react';
 import {getFriend} from 'store/friends/actions';
 import {connect} from 'react-redux';
+import { Route } from 'react-router-dom';
 import Profile from 'App/components/Profile';
 import ProfileInfo from 'App/components/ProfileInfo';
 import MediaDisplay from 'App/components/MediaDisplay';
@@ -9,6 +10,7 @@ import FeedItem from 'App/components/FeedItem';
 import ListItemInfo from '../../components/ListItemInfo';
 import ToolBar from 'App/User/containers/ToolBar';
 import ToolBarButton from 'App/components/ToolBarButton';
+import ImageUploader from 'react-images-upload';
 
 class FriendProfile extends React.Component {
 
@@ -17,7 +19,13 @@ class FriendProfile extends React.Component {
     getFriend(match.params.friend_id);
   }
 
+  handleNewImage = (e) => {
+    e.preventDefault()
+    console.log(e.target.files);
+  }
+
   renderToolBar(){
+    const { history, match } = this.props;
     return (
       <ToolBar>
         <ToolBarButton 
@@ -28,7 +36,9 @@ class FriendProfile extends React.Component {
         <ToolBarButton 
           large
           label="Add Photo"
-          handleClick={() => {}}
+          handleClick={() => {
+            history.push(`/friends/${match.params.friend_id}/image`)
+          }}
           icon="plus"
         />
         <ToolBarButton 
@@ -54,6 +64,16 @@ class FriendProfile extends React.Component {
         { isFriendMod &&
           this.renderToolBar()
         }
+
+
+        <Route 
+          path={`/friends/:friend_id/image`} 
+          render={props => (
+            <form>
+              <input type="file" onChange={this.handleNewImage} />
+            </form>
+          )}
+        />
 
         <ProfileInfo 
           friend

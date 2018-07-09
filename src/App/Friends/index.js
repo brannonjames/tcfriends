@@ -11,7 +11,7 @@ class Shelters extends React.Component {
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/friends/new" component={withAuth(NewFriendForm)} />
-        <Route path="/friends/:friend_id" component={FriendProfile}/>
+        <Route path="/friends/:friend_id" component={FriendProfile} />
         <Redirect to="/404" />
       </Switch>
     )
