@@ -16,8 +16,8 @@ class FeedItem extends React.Component {
 
 const styles = {
   small: {
-    width: '45%',
-    margin: '8px'
+    width: '46%',
+    margin: '2%'
   },
   smallText: {
     textAlign: 'center'

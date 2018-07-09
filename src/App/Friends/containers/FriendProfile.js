@@ -6,6 +6,7 @@ import ProfileInfo from 'App/components/ProfileInfo';
 import MediaDisplay from 'App/components/MediaDisplay';
 import Loader from 'App/components/Loader';
 import FeedItem from 'App/components/FeedItem';
+import ListItemInfo from '../../components/ListItemInfo';
 
 class FriendProfile extends React.Component {
 
@@ -34,9 +35,13 @@ class FriendProfile extends React.Component {
         />
         <FeedItem 
           type='shelters'
-          name={shelter.name} 
           id={shelter._id} 
-        />
+        >
+          <ListItemInfo>
+            <h3>{shelter.name}</h3>
+          </ListItemInfo>
+        </FeedItem>
+
       </Profile>
     )
   }

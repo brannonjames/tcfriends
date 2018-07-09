@@ -17,7 +17,7 @@ class ToolBar extends React.Component {
   }
 
   render(){
-    let {shelter, history} = this.props;
+    let {shelter, history, handleLogout} = this.props;
     return (
       <div className="ToolBar">
         { !shelter &&
@@ -66,14 +66,14 @@ class ToolBar extends React.Component {
              <div className="toolbar-button">
                <Button
                  buttonStyle='circle-md'
-                 handleClick={() => {}}
+                 handleClick={handleLogout}
                 >
                   <FontAwesome
-                    icon='edit'
+                    icon='logout'
                     size='2x'
                   />
                </Button>
-               <p>Edit</p>
+               <p>Logout</p>
              </div>
           </div>
          }

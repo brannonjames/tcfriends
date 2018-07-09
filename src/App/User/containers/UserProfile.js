@@ -15,6 +15,14 @@ class UserProfile extends React.Component {
     this.props.getFavorites();
   }
 
+  addShelter = () => {
+    this.props.history.push('/shelters/new');
+  }
+
+  addFriend = () => {
+    this.props.history.push('/friends/new');
+  }
+
   handleLogout = () => {
     let {history, logoutUser} = this.props;
     logoutUser();
@@ -30,15 +38,16 @@ class UserProfile extends React.Component {
           alt={user.name.first}
           round
         />
+
         <Greeting name={user.name.first} />
-        <ToolBar shelter={hasShelter} />
+
+        <ToolBar shelter={hasShelter} handleLogout={this.handleLogout} />
 
         <ProfileList 
           title='Favorites'
           items={this.props.favorites}
         />
 
-        <Button label='Logout' handleClick={this.handleLogout} />
       </Profile>
     )
   }

@@ -1,5 +1,17 @@
+.ProfileList {
+  padding: 6px;
+}
+
+.ProfileList h4 {
+  margin: 0;
+  padding-left: 2%;
+}
+
 .ProfileList ul {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  /* justify-content: space-around; */
+  align-items: flex-start;
+
+  /* padding: 6px; */
 }

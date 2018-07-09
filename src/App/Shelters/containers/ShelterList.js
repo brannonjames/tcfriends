@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import FeedItem from 'App/components/FeedItem';
+import ListItemInfo from 'App/components/ListItemInfo';
 import {getShelters} from 'store/shelters/actions';
 
 class ShelterList extends React.Component {
@@ -13,14 +14,18 @@ class ShelterList extends React.Component {
 
   render(){
     let shelters = this.props.shelters.all.map(s => {
-      let {name, _id} = s;
+      let {name, _id, friends} = s;
       return (
         <FeedItem
           id={_id}
           key={_id}
-          name={name}
           type='shelters'
-        />
+        >
+          <ListItemInfo>
+            <h2>{name}</h2>
+            <h4>{friends.length + ' friends'}</h4>
+          </ListItemInfo>
+        </FeedItem>
       )
     })
     return (

@@ -14,15 +14,17 @@ class ProfileList extends React.Component {
         small
         type={'friends'}
         key={li._id}
-        id={li._id}
-        
+        id={li._id}   
       >
+
         <FeedItemInfo>
-          <p>{li.name}</p>
+          <MediaDisplay media={li.media.photos[0]} />
         </FeedItemInfo>
-        <MediaDisplay 
-          media={li.media.photos[0]}
-        />
+
+        <FeedItemInfo>
+          <h4>{li.name}</h4>
+        </FeedItemInfo>
+
       </FeedItem>
     ))
   }
