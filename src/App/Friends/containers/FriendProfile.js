@@ -1,7 +1,7 @@
 import React from 'react';
 import {getFriend} from 'store/friends/actions';
 import {connect} from 'react-redux';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Profile from 'App/components/Profile';
 import ProfileInfo from 'App/components/ProfileInfo';
 import MediaDisplay from 'App/components/MediaDisplay';
@@ -10,9 +10,19 @@ import FeedItem from 'App/components/FeedItem';
 import ListItemInfo from '../../components/ListItemInfo';
 import ToolBar from 'App/User/containers/ToolBar';
 import ToolBarButton from 'App/components/ToolBarButton';
-import ImageUploader from 'react-images-upload';
+import ImageUploadForm from 'App/components/ImageUploadForm';
 
 class FriendProfile extends React.Component {
+
+  state = { images: [] }
+
+  handleImageUpload = () => {
+    console.log(this.state.images);
+  }
+
+  handleImageChange = (event) => {
+    this.setState({ images: event.target.files });
+  }
 
   componentDidMount(){
     let {getFriend, match} = this.props;
@@ -51,7 +61,7 @@ class FriendProfile extends React.Component {
 
   render(){
     let {pageReady, friend, isFriendMod} = this.props;
-    let {name, species, media, description, shelter, age, gender} = friend;
+    let {_id, name, species, media, description, shelter, age, gender} = friend;
     if(!pageReady){
       return <Loader />
     }
@@ -62,18 +72,26 @@ class FriendProfile extends React.Component {
         />
 
         { isFriendMod &&
-          this.renderToolBar()
+          <Switch>
+            <Route 
+              exact
+              path={`/friends/${_id}`}
+              render={props => {
+                return this.renderToolBar()
+              }}
+            />
+            <Route 
+              path={`/friends/${_id}/image`} 
+              render={props => {
+                return (
+                  <ImageUploadForm 
+                    id={_id}
+                  />
+              )
+              }}
+            />
+          </Switch>
         }
-
-
-        <Route 
-          path={`/friends/:friend_id/image`} 
-          render={props => (
-            <form>
-              <input type="file" onChange={this.handleNewImage} />
-            </form>
-          )}
-        />
 
         <ProfileInfo 
           friend
