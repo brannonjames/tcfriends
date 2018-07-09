@@ -1,6 +1,5 @@
 import React, { Component, cloneElement, Children } from 'react';
 import Button from 'App/components/Button';
-import Input from 'App/components/Input';
 import 'App/styles/Form.css';
 
 class Form extends Component {
@@ -33,7 +32,7 @@ class Form extends Component {
 
 
   render(){
-    let {inputs, handleSubmit, btnLabel} = this.props;
+    let {handleSubmit, btnLabel} = this.props;
     return (
       <form onSubmit={(e) => {
         e.preventDefault();

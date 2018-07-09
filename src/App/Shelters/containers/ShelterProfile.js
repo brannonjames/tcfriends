@@ -15,15 +15,6 @@ class ShelterProfile extends React.Component {
       return <Loader />
     }
 
-    const {
-      email,
-      address1,
-      address2,
-      city,
-      state,
-      zip
-    } = shelter.contact;
-
     return (
       <Profile>
         <ProfileInfo 

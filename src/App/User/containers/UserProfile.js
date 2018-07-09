@@ -1,7 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {logoutUser, getFavorites} from 'store/auth/actions';
-import Button from 'App/components/Button';
 import {withRouter} from 'react-router-dom';
 import Profile from 'App/components/Profile';
 import DisplayPhoto from 'App/components/DisplayPhoto';

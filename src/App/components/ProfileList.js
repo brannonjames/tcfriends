@@ -8,7 +8,6 @@ import '../styles/ProfileList.css';
 class ProfileList extends React.Component {
   renderListItems(){
     const { items } = this.props;
-    console.log(items);
     return items.map(li => (
       <FeedItem 
         small

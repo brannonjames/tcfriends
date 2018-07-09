@@ -7,13 +7,6 @@ import Input from 'App/components/Input';
 
 class Auth extends React.Component {
 
-  loginInputs = [
-  ]
-
-  signupInputs = [
-
-  ]
-
   renderLoginInputs = () => {
     return (
       [
@@ -26,11 +19,11 @@ class Auth extends React.Component {
   renderSignupInputs = () => {
     return (
       [
-        <Input name="first" label="First Name" key="first" />,
-        <Input name="last" label="Last Name" key="last" />,
-        <Input name="displayPhoto" label="Display Photo URL" key="image" />,
+        <Input name="first" label="First Name" />,
+        <Input name="last" label="Last Name" />,
+        <Input name="displayPhoto" label="Display Photo URL" />,
         ...this.renderLoginInputs(),
-        <Input name="confirmPass" label="Confirm Password" type="password" key="confirm" type="password" />
+        <Input name="confirmPass" label="Confirm Password" type="password" />
       ]  
     )
   }
@@ -51,7 +44,7 @@ class Auth extends React.Component {
 
 
   render(){
-    let {login, signup} = this.props;
+    let {signup} = this.props;
     if(signup){
       return (
         <Form
