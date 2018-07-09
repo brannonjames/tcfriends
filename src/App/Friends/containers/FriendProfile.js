@@ -7,6 +7,8 @@ import MediaDisplay from 'App/components/MediaDisplay';
 import Loader from 'App/components/Loader';
 import FeedItem from 'App/components/FeedItem';
 import ListItemInfo from '../../components/ListItemInfo';
+import ToolBar from 'App/User/containers/ToolBar';
+import ToolBarButton from 'App/components/ToolBarButton';
 
 class FriendProfile extends React.Component {
 
@@ -15,8 +17,30 @@ class FriendProfile extends React.Component {
     getFriend(match.params.friend_id);
   }
 
+  renderToolBar(){
+    return (
+      <ToolBar>
+        <ToolBarButton 
+          label="Edit"
+          handleClick={() => {}}
+          icon="edit"
+        />
+        <ToolBarButton 
+          large
+          label="Add Photo"
+          handleClick={() => {}}
+          icon="plus"
+        />
+        <ToolBarButton 
+          label="Delete"
+          handleClick={() => {}}
+        />
+      </ToolBar>
+    )
+  }
+
   render(){
-    let {pageReady, friend} = this.props;
+    let {pageReady, friend, isFriendMod} = this.props;
     let {name, species, media, description, shelter, age, gender} = friend;
     if(!pageReady){
       return <Loader />
@@ -26,6 +50,11 @@ class FriendProfile extends React.Component {
         <MediaDisplay 
           media={media.photos} 
         />
+
+        { isFriendMod &&
+          this.renderToolBar()
+        }
+
         <ProfileInfo 
           friend
           title={`${name} the ${species}`}
@@ -50,7 +79,8 @@ class FriendProfile extends React.Component {
 function mapStateToProps(state){
   return {
     pageReady: Object.keys(state.friends.currentFriend).length > 0,
-    friend: state.friends.currentFriend
+    friend: state.friends.currentFriend,
+    isFriendMod: state.currentUser._id === state.friends.currentFriend.creator
   }
 }
 

@@ -1,16 +1,6 @@
 div.ToolBar {
   width: 80%;
   margin: 4vh 0;
-}
-
- .toolbar-content {
   display: flex;
   justify-content: space-around;
-}
-
-
-.toolbar-button {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }

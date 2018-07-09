@@ -1,7 +1,8 @@
 import {SET_CURRENT_USER, UPDATE_CURRENT_USER, SET_CURRENT_USER_FAVORITES } from 'store/actionTypes';
 
 let initialState = {
-  isAuthenticated: false
+  isAuthenticated: false,
+  favorites: []
 }
 
 function currentUser(state=initialState, action){
@@ -13,7 +14,7 @@ function currentUser(state=initialState, action){
     case UPDATE_CURRENT_USER:
       return {...state, ...action.user}
     default:
-        return {...state}
+        return state
   }
 }
 

@@ -6,6 +6,7 @@ import Profile from 'App/components/Profile';
 import DisplayPhoto from 'App/components/DisplayPhoto';
 import Greeting from 'App/components/Greeting';
 import ToolBar from 'App/User/containers/ToolBar';
+import ToolBarButton from 'App/components/ToolBarButton';
 import ProfileList from '../../components/ProfileList';
 
 class UserProfile extends React.Component {
@@ -28,8 +29,43 @@ class UserProfile extends React.Component {
     history.push('/');
   }
 
+  renderToolBar(){
+    const {shelter, history} = this.props;
+    return (
+      <ToolBar>
+        { shelter && 
+            <ToolBarButton 
+              label="New Friend"
+              handleClick={this.addFriend}
+              icon="plus"
+            />
+        }
+        { shelter ? 
+          <ToolBarButton 
+            large
+            label={shelter.name}
+            handleClick={() => {history.push(`/shelters/${shelter._id}`)}}
+            icon="home"
+          /> 
+          :
+          <ToolBarButton 
+            label="Add Shelter"
+            handleClick={this.addShelter}
+            icon="home"
+          />
+        }    
+        
+        <ToolBarButton 
+          label="Logout"
+          handleClick={this.handleLogout}
+          icon="logout"
+        />
+      </ToolBar>
+    )
+  }
+
   render(){
-    let {user, hasShelter} = this.props;
+    let {user, favorites} = this.props;
     return (
       <Profile>
         <DisplayPhoto
@@ -40,12 +76,15 @@ class UserProfile extends React.Component {
 
         <Greeting name={user.name.first} />
 
-        <ToolBar shelter={hasShelter} handleLogout={this.handleLogout} />
+        {this.renderToolBar()}
 
-        <ProfileList 
-          title='Favorites'
-          items={this.props.favorites}
-        />
+        { favorites && 
+          favorites.length > 0 && 
+          <ProfileList 
+            title='Favorites'
+            items={favorites}
+          />
+        }
 
       </Profile>
     )
@@ -56,7 +95,7 @@ function mapStateToProps(state){
   return {
     user: state.currentUser,
     favorites: state.currentUser.favorites,
-    hasShelter: state.currentUser.shelter
+    shelter: state.currentUser.shelter
   }
 }
 
