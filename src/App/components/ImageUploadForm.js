@@ -5,13 +5,14 @@ import ToolBarButton from 'App/components/ToolBarButton';
 
 class ImageUploadForm extends React.Component {
 
-  state = { images: [] }
+  state = { images: {} }
 
-  handleChange(e){
+  handleChange = (e) => {
+    console.log(e.target.files)
     this.setState({ images: e.target.files });
   }
 
-  handleSubmit(){
+  handleSubmit = () => {
     this.props.submitNewImages(this.state.images);
   }
 
@@ -32,11 +33,7 @@ class ImageUploadForm extends React.Component {
             label="Upload"
             handleClick={this.handleSubmit}
           />
-          <ToolBarButton 
-            icon="times"
-            label="cancel"
-            handleClick={() => this.props.history.push(`/friends/${this.props.id}`)}
-          />
+
 
       </ToolBar>
     )

@@ -1,5 +1,6 @@
 import React from 'react';
 import {getFriend} from 'store/friends/actions';
+import { uploadImages } from 'services/images';
 import {connect} from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 import Profile from 'App/components/Profile';
@@ -14,10 +15,9 @@ import ImageUploadForm from 'App/components/ImageUploadForm';
 
 class FriendProfile extends React.Component {
 
-  state = { images: [] }
 
-  handleImageUpload = () => {
-    console.log(this.state.images);
+  handleImageUpload = (images) => {
+    uploadImages(`/friend`,images);
   }
 
   handleImageChange = (event) => {
@@ -86,6 +86,7 @@ class FriendProfile extends React.Component {
                 return (
                   <ImageUploadForm 
                     id={_id}
+                    submitNewImages={this.handleImageUpload}
                   />
               )
               }}
