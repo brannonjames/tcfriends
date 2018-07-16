@@ -78,7 +78,7 @@ class FriendProfile extends React.Component {
                 return (
                   <ImageUploadForm 
                     id={_id}
-                    submitNewImages={uploadImages.bind(this, _id)}
+                    submitNewImages={uploadImages.bind(this, _id, shelter._id)}
                   />
               )
               }}

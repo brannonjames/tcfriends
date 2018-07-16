@@ -85,9 +85,9 @@ export function heartFriend(id){
   }
 }
 
-export function uploadImages(id, images){
+export function uploadImages(id, shelterId, images){
   return dispatch => {
-    apiCall('post', `/api/friends/${id}/images`, null, images)
+    apiCall('post', `/api/friends/${id}/images`, { shelterId }, images)
       .then(() => {})
       .catch(err => console.log(err));
   }

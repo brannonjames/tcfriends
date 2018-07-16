@@ -16,7 +16,7 @@ class ImageUploadForm extends React.Component {
         formData.append('file', file);
         images.push(formData);
       }
-      this.props.submitNewImages(images);
+      this.props.submitNewImages(images[0]);
     }
   }
 
