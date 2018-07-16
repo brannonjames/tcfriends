@@ -1,6 +1,6 @@
 import React from 'react';
 import {getFriend} from 'store/friends/actions';
-import { uploadImages } from 'services/images';
+import { uploadImages } from 'store/friends/actions';
 import {connect} from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 import Profile from 'App/components/Profile';
@@ -15,14 +15,6 @@ import ImageUploadForm from 'App/components/ImageUploadForm';
 
 class FriendProfile extends React.Component {
 
-
-  handleImageUpload = (images) => {
-    uploadImages(`/friend`,images);
-  }
-
-  handleImageChange = (event) => {
-    this.setState({ images: event.target.files });
-  }
 
   componentDidMount(){
     let {getFriend, match} = this.props;
@@ -60,7 +52,7 @@ class FriendProfile extends React.Component {
   }
 
   render(){
-    let {pageReady, friend, isFriendMod} = this.props;
+    let {pageReady, friend, isFriendMod, uploadImages} = this.props;
     let {_id, name, species, media, description, shelter, age, gender} = friend;
     if(!pageReady){
       return <Loader />
@@ -86,7 +78,7 @@ class FriendProfile extends React.Component {
                 return (
                   <ImageUploadForm 
                     id={_id}
-                    submitNewImages={this.handleImageUpload}
+                    submitNewImages={uploadImages.bind(this, _id)}
                   />
               )
               }}
@@ -123,4 +115,4 @@ function mapStateToProps(state){
   }
 }
 
-export default connect(mapStateToProps, {getFriend})(FriendProfile);
+export default connect(mapStateToProps, {getFriend, uploadImages})(FriendProfile);

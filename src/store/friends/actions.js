@@ -84,3 +84,11 @@ export function heartFriend(id){
     });
   }
 }
+
+export function uploadImages(id, images){
+  return dispatch => {
+    apiCall('post', `/api/friends/${id}/images`, null, images)
+      .then(() => {})
+      .catch(err => console.log(err));
+  }
+}
