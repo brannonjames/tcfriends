@@ -1,40 +1,44 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import ToolBar from 'App/User/containers/ToolBar';
-import ToolBarButton from 'App/components/ToolBarButton';
 
 class ImageUploadForm extends React.Component {
 
-  state = { images: {} }
+  // My first ref, woohoo!!
+  fileInput = React.createRef();
 
-  handleChange = (e) => {
-    console.log(e.target.files)
-    this.setState({ images: e.target.files });
+  handleChange = e => {
+    const { files } = e.target;
+    const images = [];
+    if(files.length > 0) {
+      for(let file of files){
+        let formData = new FormData();
+        formData.append('file', file);
+        images.push(formData);
+      }
+      this.props.submitNewImages(images);
+    }
   }
 
-  handleSubmit = () => {
-    this.props.submitNewImages(this.state.images);
+  handleClick = () => {
+    this.fileInput.current.click();
   }
 
   render(){
     return (
       <ToolBar>
-        <form>
-          <input 
-            multiple
-            type="file" 
-            onChange={this.handleChange}
-          />
-        </form>
-
-          <ToolBarButton 
-            large
-            icon="plus"
-            label="Upload"
-            handleClick={this.handleSubmit}
-          />
-
-
+        <input 
+          type="file"
+          ref={this.fileInput}
+          style={{ display: 'none' }}
+          onChange={this.handleChange}
+        />
+        <button 
+          onClick={this.handleClick}
+          className="button circle-lg"
+        >
+          Add Photo
+        </button>
       </ToolBar>
     )
   }
