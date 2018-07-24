@@ -11,19 +11,19 @@ class Slideshow extends React.Component {
   }
 
   handlePrev = (e) => {
-    let {index, testPhotos} = this.state;
+    let {index} = this.state;
     this.setState(prev => {
       return {
-        index: index > 0 ? index - 1 : testPhotos.length - 1
+        index: index > 0 ? index - 1 : this.props.media.length - 1
       }
     });
   }
   
   handleNext = (e) => {
-    let {index, testPhotos} = this.state;
+    let {index} = this.state;
     this.setState(prev => {
       return {
-        index: index < testPhotos.length - 1 ? index + 1 : 0
+        index: index < this.props.media.length - 1 ? index + 1 : 0
       }
     });
   }
