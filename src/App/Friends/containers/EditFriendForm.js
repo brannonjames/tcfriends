@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getFriend, updateFriend } from 'store/friends/actions';
+import { getFriend, updateFriend, deleteImage } from 'store/friends/actions';
 import Profile from 'App/components/Profile';
 import MediaDisplay from 'App/components/MediaDisplay';
 import FriendForm from 'App/components/FriendForm';
@@ -21,12 +21,21 @@ class EditFriendForm extends Component {
       });
   }
 
+  handleImageDelete = (friend_id, shelter_id, id) => {
+
+    this.props.deleteImage(id, friend_id, shelter_id);
+  }
+
   render(){
-    const { media, name, species, age, gender, description } = this.props.currentFriend;
+    const { media, _id, shelter } = this.props.currentFriend;
     return (
       <Profile>
         { media && 
-          <MediaDisplay media={media.photos} />
+          <MediaDisplay 
+            edit
+            media={media.photos} 
+            handleDelete={this.handleImageDelete.bind(this, _id, shelter._id)}
+          />
         }
         <FriendForm 
           initialState={this.props.currentFriend}
@@ -44,4 +53,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { getFriend, updateFriend })(EditFriendForm);
+export default connect(mapStateToProps, { getFriend, updateFriend, deleteImage })(EditFriendForm);

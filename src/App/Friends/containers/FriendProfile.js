@@ -31,7 +31,7 @@ class FriendProfile extends React.Component {
   }
 
   renderToolBar(){
-    const { history, match, location } = this.props;
+    const { history, match, location, friend } = this.props;
     return (
       <ToolBar>
         <ToolBarButton 
@@ -43,7 +43,7 @@ class FriendProfile extends React.Component {
           large
           label="Add Photo"
           handleClick={() => {
-            history.push(`/friends/${match.params.friend_id}/image`)
+            history.push(`/friends/${friend._id}/image`)
           }}
           icon="plus"
         />
