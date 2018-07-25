@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import ToolBar from 'App/User/containers/ToolBar';
+import Button from 'App/components/Button';
 
 class ImageUploadForm extends React.Component {
 
@@ -27,6 +28,11 @@ class ImageUploadForm extends React.Component {
   render(){
     return (
       <ToolBar>
+        <Button 
+          buttonStyle='circle-md'
+          label="Cancel"
+          handleClick={() => this.props.history.goBack()}
+        />
         <input 
           type="file"
           ref={this.fileInput}
