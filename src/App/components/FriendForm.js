@@ -23,6 +23,12 @@ class FriendForm extends React.Component {
     }
   }
 
+  componentWillReceiveProps = nextProps => {
+    if (nextProps.initialState ) {
+      this.setState(nextProps.initialState);
+    }
+  }
+
   species = [
     {
       name: 'dog',
@@ -65,7 +71,7 @@ class FriendForm extends React.Component {
   ]
 
   render(){
-    const { handleSubmit, initialState, btnLabel } = this.props;
+    const { handleSubmit, btnLabel } = this.props;
     const { name, species, age, gender, url, description } = this.state;
     return (
       <Form

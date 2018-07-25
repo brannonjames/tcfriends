@@ -32,7 +32,6 @@ class FriendProfile extends React.Component {
 
   renderToolBar(){
     const { history, match, location } = this.props;
-    console.log(history);
     return (
       <ToolBar>
         <ToolBarButton 
