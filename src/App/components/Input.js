@@ -8,13 +8,13 @@ class Input extends React.Component {
       value,
       label,
       name,
-      handleChange
+      onChange
     } = this.props
     return {
-      value: value,
+      value,
       placeholder: label,
-      name: name,
-      onChange: handleChange
+      name,
+      onChange
     }
   }
 

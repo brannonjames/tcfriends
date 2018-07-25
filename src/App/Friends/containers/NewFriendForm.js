@@ -1,12 +1,12 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {addNewFriend, getFriends} from 'store/friends/actions';
-import Input from 'App/components/Input';
-import Form from 'App/components/Form';
+import FriendForm from 'App/components/FriendForm';
 
 class NewFriendForm extends React.Component {
 
   handleNewFriend = friend => {
+    console.log(this.props);
     let {usersShelterId, addNewFriend, getFriends, history} = this.props;
     addNewFriend(usersShelterId, friend)
     .then(friend => {
@@ -15,93 +15,20 @@ class NewFriendForm extends React.Component {
     })
   }
 
-  species = [
-    {
-      name: 'dog',
-      label: 'Dog'
-    },
-    {
-      name: 'cat',
-      label: 'Cat'
-    }
-  ]
-
-  genders = [
-    {
-      name: 'male',
-      label: 'Male'
-    },
-    {
-      name: 'female',
-      label: 'Female'
-    },
-    {
-      name: 'unknown',
-      label: 'Unknown'
-    }
-  ]
-
-  ages = [
-    {
-      name: 'young',
-      label: 'Young'
-    },
-    {
-      name: 'adult',
-      label: 'Adult'
-    },
-    {
-      name: 'senior',
-      label: 'Senior'
-    }
-  ]
-
   render(){
     return (
-      <Form
-        handleSubmit={this.handleNewFriend}
+      <FriendForm 
         btnLabel="Add Friend"
-      >
-        <Input 
-          name='name'
-          label='Name'
-        />
-        <Input
-          options={this.species} 
-          name='species'
-          label='Species'
-        />
-        <Input 
-          options={this.ages}
-          name='age'
-          label='Age'
-        />
-        <Input
-          options={this.genders} 
-          name='gender'
-          label='Gender'
-        />
-        <Input 
-          name='photo'
-          label='Image URL'
-        />
-        <Input 
-          textarea
-          name="description"
-          label="All about your friend"
-        />
-      </Form>
+        handleSubmit={this.handleNewFriend}
+      />
     )
   }
-
 }
 
-
-
-function mapStateToProps(state){
+const mapStateToProps = state => {
   return {
     usersShelterId: state.currentUser.shelter._id
   }
 }
 
-export default connect(mapStateToProps, {addNewFriend, getFriends})(NewFriendForm);
+export default connect(mapStateToProps, { addNewFriend, getFriends })(NewFriendForm);

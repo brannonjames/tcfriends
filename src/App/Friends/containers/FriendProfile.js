@@ -31,12 +31,13 @@ class FriendProfile extends React.Component {
   }
 
   renderToolBar(){
-    const { history, match } = this.props;
+    const { history, match, location } = this.props;
+    console.log(history);
     return (
       <ToolBar>
         <ToolBarButton 
           label="Edit"
-          handleClick={() => {}}
+          handleClick={() => { history.push(`${location.pathname}/edit`) }}
           icon="edit"
         />
         <ToolBarButton 
