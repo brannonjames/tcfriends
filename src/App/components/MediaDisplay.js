@@ -29,7 +29,7 @@ class Slideshow extends React.Component {
   }
 
   render(){
-    let {path:src, name:alt} = this.props.media[this.state.index];
+    let {url:src, name:alt} = this.props.media[this.state.index];
     return (
       <div className='Slideshow'>
         <div className='slideshow-nav'>
@@ -52,12 +52,12 @@ const MediaDisplay = ({media}) => {
   let display;
   if(slideshow){
     if(media.length < 2) {
-      display = <img src={media[0].path} alt={media[0].name} />;
+      display = <img src={media[0].url} alt={media[0].name} />;
     } else {
       display = <Slideshow media={media} />
     }    
   } else {
-    display = <img src={media.path} alt={media.name} />
+    display = <img src={media.url} alt={media.name} />
   }
   return (
     <div className="MediaDisplay">

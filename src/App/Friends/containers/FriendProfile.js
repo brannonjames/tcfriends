@@ -21,9 +21,13 @@ class FriendProfile extends React.Component {
     getFriend(match.params.friend_id);
   }
 
-  handleNewImage = (e) => {
-    e.preventDefault()
-    console.log(e.target.files);
+  handleNewImage = (image) => {
+    let {friend, uploadImages, getFriend} = this.props;
+    let {_id, shelter} = friend;
+    uploadImages(_id, shelter._id, image)
+      .then(() => {
+        getFriend(_id);
+      });
   }
 
   renderToolBar(){
@@ -78,7 +82,7 @@ class FriendProfile extends React.Component {
                 return (
                   <ImageUploadForm 
                     id={_id}
-                    submitNewImages={uploadImages.bind(this, _id, shelter._id)}
+                    submitNewImages={this.handleNewImage}
                   />
               )
               }}
