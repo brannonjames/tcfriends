@@ -18,6 +18,7 @@ class ImageUploadForm extends React.Component {
         images.push(formData);
       }
       this.props.submitNewImages(images[0]);
+      this.props.history.goBack()
     }
   }
 
