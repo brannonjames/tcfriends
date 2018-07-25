@@ -23,7 +23,10 @@ class EditFriendForm extends Component {
 
   handleImageDelete = (friend_id, shelter_id, id) => {
 
-    this.props.deleteImage(id, friend_id, shelter_id);
+    const { deleteImage, getFriend } = this.props;
+
+    deleteImage(id, friend_id, shelter_id)
+      .then(() => getFriend(friend_id))
   }
 
   render(){

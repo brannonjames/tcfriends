@@ -114,7 +114,6 @@ export function uploadImages(id, shelterId, images){
 export function deleteImage(id, friendId, shelterId){
   return dispatch => {
     return apiCall('delete', `/api/friends/${friendId}/images/${id}`, { shelterId })
-      .then(friend => dispatch(refreshFriend(friend)))
       .catch(err => console.log(err));
   }
 }
