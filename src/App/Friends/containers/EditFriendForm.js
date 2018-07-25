@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getFriend } from 'store/friends/actions';
+import { getFriend, updateFriend } from 'store/friends/actions';
 import Profile from 'App/components/Profile';
 import MediaDisplay from 'App/components/MediaDisplay';
 import FriendForm from 'App/components/FriendForm';
@@ -13,6 +13,14 @@ class EditFriendForm extends Component {
     getFriend(match.params.friend_id);
   }
 
+  handleUpdate = friend => {
+    const { updateFriend, history } = this.props;
+    updateFriend(friend._id, friend.shelter._id, friend)
+      .then(updatedFriend => {
+        history.goBack();
+      });
+  }
+
   render(){
     const { media, name, species, age, gender, description } = this.props.currentFriend;
     return (
@@ -23,6 +31,7 @@ class EditFriendForm extends Component {
         <FriendForm 
           initialState={this.props.currentFriend}
           btnLabel="Update"
+          handleSubmit={this.handleUpdate}
         />
       </Profile>
     )
@@ -35,4 +44,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { getFriend })(EditFriendForm);
+export default connect(mapStateToProps, { getFriend, updateFriend })(EditFriendForm);

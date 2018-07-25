@@ -85,6 +85,23 @@ export function heartFriend(id){
   }
 }
 
+export function updateFriend(id, shelterId, friend){
+  return dispatch => {
+    return new Promise((resolve, reject) => {
+      return apiCall('put', `/api/friends/${id}`, { shelterId }, friend)
+        .then(friend => {
+          dispatch(refreshFriend(friend))
+          resolve(friend);
+        })
+        .catch(err => {
+          dispatch(addError(err));
+          reject(err);
+        });
+    })
+  }
+}
+
+
 export function uploadImages(id, shelterId, images){
   return () => {
       return apiCall('post', `/api/friends/${id}/images`, { shelterId }, images)
