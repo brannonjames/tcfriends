@@ -84,3 +84,12 @@ export function heartFriend(id){
     });
   }
 }
+
+export function uploadImages(id, shelterId, images){
+  return () => {
+      return apiCall('post', `/api/friends/${id}/images`, { shelterId }, images)
+      .catch(err => {
+        console.log(err);
+      })
+  }
+}

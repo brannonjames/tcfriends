@@ -1,6 +1,8 @@
 import React from 'react';
 import {getFriend} from 'store/friends/actions';
+import { uploadImages } from 'store/friends/actions';
 import {connect} from 'react-redux';
+import { Route, Switch } from 'react-router-dom';
 import Profile from 'App/components/Profile';
 import ProfileInfo from 'App/components/ProfileInfo';
 import MediaDisplay from 'App/components/MediaDisplay';
@@ -9,15 +11,27 @@ import FeedItem from 'App/components/FeedItem';
 import ListItemInfo from '../../components/ListItemInfo';
 import ToolBar from 'App/User/containers/ToolBar';
 import ToolBarButton from 'App/components/ToolBarButton';
+import ImageUploadForm from 'App/components/ImageUploadForm';
 
 class FriendProfile extends React.Component {
+
 
   componentDidMount(){
     let {getFriend, match} = this.props;
     getFriend(match.params.friend_id);
   }
 
+  handleNewImage = (image) => {
+    let {friend, uploadImages, getFriend} = this.props;
+    let {_id, shelter} = friend;
+    uploadImages(_id, shelter._id, image)
+      .then(() => {
+        getFriend(_id);
+      });
+  }
+
   renderToolBar(){
+    const { history, match } = this.props;
     return (
       <ToolBar>
         <ToolBarButton 
@@ -28,7 +42,9 @@ class FriendProfile extends React.Component {
         <ToolBarButton 
           large
           label="Add Photo"
-          handleClick={() => {}}
+          handleClick={() => {
+            history.push(`/friends/${match.params.friend_id}/image`)
+          }}
           icon="plus"
         />
         <ToolBarButton 
@@ -40,8 +56,8 @@ class FriendProfile extends React.Component {
   }
 
   render(){
-    let {pageReady, friend, isFriendMod} = this.props;
-    let {name, species, media, description, shelter, age, gender} = friend;
+    let {pageReady, friend, isFriendMod, uploadImages} = this.props;
+    let {_id, name, species, media, description, shelter, age, gender} = friend;
     if(!pageReady){
       return <Loader />
     }
@@ -52,7 +68,26 @@ class FriendProfile extends React.Component {
         />
 
         { isFriendMod &&
-          this.renderToolBar()
+          <Switch>
+            <Route 
+              exact
+              path={`/friends/${_id}`}
+              render={props => {
+                return this.renderToolBar()
+              }}
+            />
+            <Route 
+              path={`/friends/${_id}/image`} 
+              render={props => {
+                return (
+                  <ImageUploadForm 
+                    id={_id}
+                    submitNewImages={this.handleNewImage}
+                  />
+              )
+              }}
+            />
+          </Switch>
         }
 
         <ProfileInfo 
@@ -84,4 +119,4 @@ function mapStateToProps(state){
   }
 }
 
-export default connect(mapStateToProps, {getFriend})(FriendProfile);
+export default connect(mapStateToProps, {getFriend, uploadImages})(FriendProfile);
