@@ -19,7 +19,7 @@ appropiate port
 
 ## Screen Shot
 
-Include one or two screen shots of your project here (optional). Remove if unused.
+![login-screen](https://i.imgur.com/84Cf8Zu.png)
 
 
 ### Next Steps
