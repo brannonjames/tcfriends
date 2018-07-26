@@ -11,6 +11,7 @@ React, Redux
 Steps to get the development environment running.
 
 `npm install` to install dependencies
+
 `npm start` to start app
 
 However you won't be able to fetch any data on your local machine unless running the api server on the 
