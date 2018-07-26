@@ -19,7 +19,7 @@ appropiate port
 
 ## Screen Shot
 
-![login-screen](https://i.imgur.com/84Cf8Zu.png)
+![login-screen](https://i.imgur.com/84Cf8Zu.png) ![home-screen](https://i.imgur.com/qFsVcJc.png)
 
 
 ### Next Steps
